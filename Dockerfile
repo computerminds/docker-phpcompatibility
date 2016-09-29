@@ -4,7 +4,7 @@ FROM composer/composer:1.0.0
 RUN composer global require 'wimg/php-compatibility:*'
 
 # Add the coding standards to PHPCS.
-RUN composer global exec 'phpcs --config-set installed_paths /composer/vendor/wimg/php-compatibility'
+RUN ln -s /composer/vendor/wimg/php-compatibility /composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility
 
 # Make sure phpcs was installed correctly.
 RUN composer global exec 'which phpcs'
