@@ -12,5 +12,7 @@ RUN composer global exec 'which phpcs'
 # List the installed standards.
 RUN composer global exec 'phpcs -i'
 
-# Set the entrypoint to use the Drupal standard.
-ENTRYPOINT ["phpcs", "-p", "--standard=PHPCompatibility"]
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh", "-p"]
+
+CMD ["--report=checkstyle", "--report-file=report/checkstyle.xml", "."]
