@@ -1,10 +1,7 @@
-FROM composer/composer:1.0.0
+FROM composer/composer:1
 
 # Install coder
-RUN composer global require 'wimg/php-compatibility:*'
-
-# Add the coding standards to PHPCS.
-RUN cp -r /composer/vendor/wimg/php-compatibility /composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility
+RUN composer global require 'higidi/composer-phpcodesniffer-standards-plugin:*' 'wimg/php-compatibility:*'
 
 # Make sure phpcs was installed correctly.
 RUN composer global exec 'which phpcs'
