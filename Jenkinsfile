@@ -10,7 +10,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh "docker build -t computerminds/phpcs-phpcompatibility:latest ."
+        ansiColor('ansi') {
+            timestamps {
+              sh "docker build -t computerminds/phpcs-phpcompatibility:latest ."
+            }
+        }
       }
     }
     stage('Publish') {
