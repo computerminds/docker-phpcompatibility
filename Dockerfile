@@ -1,4 +1,4 @@
-FROM composer/composer:1
+FROM computerminds/composer:latest
 
 # Display version information
 RUN composer --version
