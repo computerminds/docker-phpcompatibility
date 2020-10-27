@@ -1,5 +1,8 @@
 FROM composer/composer:1
 
+# Display version information
+RUN composer --version
+
 # Install coder
 RUN composer global require 'dealerdirect/phpcodesniffer-composer-installer:^0.4.3' 'wimg/php-compatibility:8.*'
 
